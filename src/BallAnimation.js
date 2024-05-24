@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Sketch from 'react-p5';
 
 const BallAnimation = () => {
