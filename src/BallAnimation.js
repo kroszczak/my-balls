@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Sketch from 'react-p5';
-import 'p5/lib/addons/p5.sound'; // Import p5.sound
 
 const BallAnimation = () => {
   let balls = [];
