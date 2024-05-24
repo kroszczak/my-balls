@@ -1,22 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Sketch from 'react-p5';
 
 const BallAnimation = () => {
+  useEffect(() => {
+    // Tworzenie nowego obiektu Audio i odtwarzanie pliku audio po zamontowaniu komponentu
+    const audio = new Audio('elev.mp3');
+    audio.play();
+
+    // Funkcja czyszcząca, zostanie wywołana po odmontowaniu komponentu
+    return () => {
+      audio.pause(); // Zatrzymaj odtwarzanie audio, jeśli komponent zostanie odmontowany
+    };
+  }, []); // Pusta tablica zależności oznacza, że useEffect zostanie uruchomiony tylko raz po zamontowaniu komponentu
+
   let balls = [];
   const numBalls = 16;
   const ballSize = 65;
-  let soundFile;
   const colors = ['#FF0000', '#0000FF', '#00FF00', '#FFFF00']; // Zbiór kolorów: czerwony, niebieski, zielony, żółty
-
-  const preload = (p5) => {
-    soundFile = p5.loadSound('elev.mp3',
-      () => {
-        console.log('Sound loaded successfully');
-        soundFile.setVolume(0.1); // Ustaw głośność na 50%
-      },
-      (err) => console.error('Failed to load sound', err)
-    );
-  };
 
   const setup = (p5, canvasParentRef) => {
     p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
@@ -24,10 +24,6 @@ const BallAnimation = () => {
       const color = p5.random(colors);
       balls.push(new Ball(p5, p5.random(p5.width), p5.random(p5.height), ballSize, color));
     }
-    soundFile.play();
-    setTimeout(() => {
-      soundFile.stop();
-    }, 35000); // Stop the sound after 35 seconds
   };
 
   const draw = (p5) => {
@@ -91,7 +87,7 @@ const BallAnimation = () => {
     }
   }
 
-  return <Sketch setup={setup} draw={draw} preload={preload} />;
+  return <Sketch setup={setup} draw={draw} />;
 };
 
 export default BallAnimation;
