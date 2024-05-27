@@ -76,7 +76,7 @@ const BallAnimation = () => {
       for (let otherBall of otherBalls) {
         if (otherBall !== this) {
           let distance = this.position.dist(otherBall.position);
-          let minDistance = this.size / 2.1 + otherBall.size / 2.1;
+          let minDistance = this.size / 2.0 + otherBall.size / 2.0;
           if (distance < minDistance) {
             let normal = p5.constructor.Vector.sub(otherBall.position, this.position).normalize();
             let d1 = this.velocity.dot(normal);
