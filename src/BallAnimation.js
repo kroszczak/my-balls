@@ -88,7 +88,7 @@ const BallAnimation = () => {
             if (distance < (minDistance / 2)) {
               otherBall.position = p5.createVector(otherBall.position.x + ballSize + 2, otherBall.position.y);
             }
-            // Dodajemy warunek sprawdzający, czy kule są zbyt blisko
+            // Dodajemy warunek sprawdzający, czy kule są zbyt bliskoq
             // if (distance < 2) {
             //   this.position.add(normal);
             //   otherBall.position.sub(normal);
