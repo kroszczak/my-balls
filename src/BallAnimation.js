@@ -21,7 +21,7 @@ const BallAnimation = () => {
   }, []); // Pusta tablica zależności oznacza, że useEffect zostanie uruchomiony tylko raz po zamontowaniu komponentu
 
   let balls = [];
-  const numBalls = 16;
+  const numBalls = 21;
   const ballSize = 65;
   const colors = ['#FF0000', '#0000FF', '#00FF00', '#FFFF00']; // Zbiór kolorów: czerwony, niebieski, zielony, żółty
 
