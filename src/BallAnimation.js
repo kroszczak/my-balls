@@ -28,7 +28,7 @@ const BallAnimation = () => {
   const setup = (p5, canvasParentRef) => {
     p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
     for (let i = 0; i < (screenWidth > 1000 ? 25 : 14); i++) {
-      const color = i < (screenWidth > 1000 ? 7 : 5) ? '#FF0000' : p5.random(colors);
+      const color = i < (screenWidth > 1000 ? 5 : 4) ? '#FF0000' : p5.random(colors);
 
       balls.push(new Ball(p5, p5.random(p5.width), p5.random(p5.height), ballSize, color));
     }
