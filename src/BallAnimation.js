@@ -34,12 +34,12 @@ const BallAnimation = () => {
   const colors = ['#FF0000', '#FF0000', '#0000FF', '#00FF00', '#FFFF00']; // Zbiór kolorów: czerwony, niebieski, zielony, żółty
 
   const setup = (p5, canvasParentRef) => {
-    console.log(numBalls);
     p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
     for (let i = 0; i < numBalls; i++) {
       const color = p5.random(colors);
       balls.push(new Ball(p5, p5.random(p5.width), p5.random(p5.height), ballSize, color));
     }
+    console.log(balls);
   };
 
   const draw = (p5) => {
