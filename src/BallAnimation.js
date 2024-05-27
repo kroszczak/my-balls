@@ -5,10 +5,17 @@ const BallAnimation = () => {
   useEffect(() => {
     // Tworzenie nowego obiektu Audio i odtwarzanie pliku audio po zamontowaniu komponentu
     const audio = new Audio('elev.mp3');
-    audio.play();
+    audio.volume = 0.1;
+    let audio2 = audio.play().then(_ => { console.log('działa!') });
+
+    const stopAudioAfterTimeout = setTimeout(() => {
+      audio.pause();
+      audio.currentTime = 0; // Opcjonalnie resetowanie czasu odtwarzania
+    }, 35000);
 
     // Funkcja czyszcząca, zostanie wywołana po odmontowaniu komponentu
     return () => {
+      clearTimeout(stopAudioAfterTimeout);
       audio.pause(); // Zatrzymaj odtwarzanie audio, jeśli komponent zostanie odmontowany
     };
   }, []); // Pusta tablica zależności oznacza, że useEffect zostanie uruchomiony tylko raz po zamontowaniu komponentu
