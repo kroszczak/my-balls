@@ -5,7 +5,7 @@ const EndScreen = () => {
         <div style={styles.container}>
             <h1 style={styles.text}>Dziękujemy za udział w badaniu!</h1>
             <br />
-            <h2 style={styles.text}>prosimy o wypełnienie ankiety:  https://forms.gle/EMfT3BHJD7sLfbyk7</h2>
+            <h2 style={styles.text}>prosimy o wypełnienie ankiety: <br /> https://forms.gle/EMfT3BHJD7sLfbyk7</h2>
         </div>
     );
 };
