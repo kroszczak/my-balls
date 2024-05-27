@@ -48,7 +48,7 @@ const BallAnimation = () => {
     constructor(p5, x, y, size, color) {
       this.p5 = p5;
       this.position = p5.createVector(x, y);
-      this.velocity = p5.createVector(p5.random(-1, 1), p5.random(-1, 1)).mult(p5.random(3, 6));
+      this.velocity = p5.createVector(p5.random(-1, 1), p5.random(-1, 1)).mult(p5.random(4, 7));
       this.size = size;
       this.color = color;
     }
