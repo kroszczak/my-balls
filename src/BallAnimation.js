@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sketch from 'react-p5';
 
 const BallAnimation = () => {
   const [numBalls, setBallsNumber] = useState(21);
   useEffect(() => {
+    const screenWidth = window.innerWidth;
     if (screenWidth < 600) {
       setBallsNumber(10);
     } else if (screenWidth < 1200) {
