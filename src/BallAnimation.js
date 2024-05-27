@@ -3,8 +3,6 @@ import Sketch from 'react-p5';
 
 const BallAnimation = () => {
   // Tworzenie nowego obiektu Audio i odtwarzanie pliku audio po zamontowaniu komponentu
-
-  const [numBalls, setBallsNumber] = useState(21);
   useEffect(() => {
     const audio = new Audio('elev.mp3');
     audio.volume = 0.001;
@@ -14,14 +12,7 @@ const BallAnimation = () => {
       audio.pause();
       audio.currentTime = 0; // Opcjonalnie resetowanie czasu odtwarzania
     }, 35000);
-    const screenWidth = window.innerWidth;
-    if (screenWidth < 600) {
-      setBallsNumber(10);
-    } else if (screenWidth < 1200) {
-      setBallsNumber(20);
-    } else {
-      setBallsNumber(30);
-    }
+
     // Funkcja czyszcząca, zostanie wywołana po odmontowaniu komponentu
     return () => {
       clearTimeout(stopAudioAfterTimeout);
@@ -30,6 +21,8 @@ const BallAnimation = () => {
   }, []); // Pusta tablica zależności oznacza, że useEffect zostanie uruchomiony tylko raz po zamontowaniu komponentu
 
   let balls = [];
+  const screenWidth = window.innerWidth;
+  let numBalls = 27;
   const ballSize = 65;
   const colors = ['#FF0000', '#FF0000', '#0000FF', '#00FF00', '#FFFF00']; // Zbiór kolorów: czerwony, niebieski, zielony, żółty
 
