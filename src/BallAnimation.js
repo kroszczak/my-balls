@@ -2,7 +2,15 @@ import React, { useEffect } from 'react';
 import Sketch from 'react-p5';
 
 const BallAnimation = () => {
+  const [numBalls, setBallsNumber] = useState(21);
   useEffect(() => {
+    if (screenWidth < 600) {
+      setBallsNumber(10);
+    } else if (screenWidth < 1200) {
+      setBallsNumber(20);
+    } else {
+      setBallsNumber(30);
+    }
     // Tworzenie nowego obiektu Audio i odtwarzanie pliku audio po zamontowaniu komponentu
     const audio = new Audio('elev.mp3');
     audio.volume = 0.001;
@@ -21,7 +29,6 @@ const BallAnimation = () => {
   }, []); // Pusta tablica zależności oznacza, że useEffect zostanie uruchomiony tylko raz po zamontowaniu komponentu
 
   let balls = [];
-  const numBalls = 21;
   const ballSize = 65;
   const colors = ['#FF0000', '#FF0000', '#0000FF', '#00FF00', '#FFFF00']; // Zbiór kolorów: czerwony, niebieski, zielony, żółty
 
@@ -62,8 +69,11 @@ const BallAnimation = () => {
     }
 
     checkEdges() {
-      if (this.position.x + this.size / 2.0 >= this.p5.width || this.position.x - this.size / 2 <= 0) {
+      if (this.position.x + this.size / 2.0 >= this.p5.width + 5 || this.position.x - this.size / 2 <= 5) {
         this.velocity.x *= -1;
+      }
+      if (this.position.y + this.size / 2.0 >= this.p5.height + 5 || this.position.y - this.size / 2 <= 5) {
+        this.velocity.y *= -1;
       }
     }
 
