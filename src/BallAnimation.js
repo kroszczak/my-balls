@@ -6,7 +6,7 @@ const BallAnimation = () => {
     // Tworzenie nowego obiektu Audio i odtwarzanie pliku audio po zamontowaniu komponentu
     const audio = new Audio('elev.mp3');
     audio.volume = 0.001;
-    let audio2 = audio.play().then(_ => { console.log('działa!') });
+    audio.play().then(_ => { console.log('działa!') });
 
     const stopAudioAfterTimeout = setTimeout(() => {
       audio.pause();
