@@ -4,7 +4,7 @@ const WelcomeScreen = ({ onStart }) => {
     return (
         <div style={styles.container}>
             <h1>Przedstawiamy: nasze kule (The our balls expreriment)</h1>
-            <p style={{ maxWidth: 80 + 'vw', fontSize: 1.9 + 'em' }}> 1. Upewnij się, że jesteś sam w pomieszczeniu w cichym pomieszczeniu. <br />
+            <p style={{ maxWidth: 80 + 'vw', fontSize: 1.5 + 'rem' }}> 1. Upewnij się, że jesteś sam w pomieszczeniu w cichym pomieszczeniu. <br />
                 2. Jeśli możesz, załóż słuchawki <br />
                 3. Ustaw głośność swojego urządzenia na maksymalny poziom. <br />
                 <br />
