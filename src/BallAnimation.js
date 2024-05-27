@@ -23,7 +23,7 @@ const BallAnimation = () => {
   let balls = [];
   const screenWidth = window.innerWidth;
   const ballSize = 65;
-  const colors = ['#FF0000', '#FF0000', '#FF0000', '#0000FF', '#0000FF', '#0000FF', '#00FF00', '#00FF00', '#FFFF00', '#FFFF00']; // Zbiór kolorów: czerwony, niebieski, zielony, żółty
+  const colors = ['#0000FF', '#00FF00', '#FFFF00']; // Zbiór kolorów: czerwony, niebieski, zielony, żółty
 
   const setup = (p5, canvasParentRef) => {
     p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
