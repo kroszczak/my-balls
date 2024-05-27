@@ -2,17 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Sketch from 'react-p5';
 
 const BallAnimation = () => {
+  // Tworzenie nowego obiektu Audio i odtwarzanie pliku audio po zamontowaniu komponentu
+
   const [numBalls, setBallsNumber] = useState(21);
   useEffect(() => {
-    const screenWidth = window.innerWidth;
-    if (screenWidth < 600) {
-      setBallsNumber(10);
-    } else if (screenWidth < 1200) {
-      setBallsNumber(20);
-    } else {
-      setBallsNumber(30);
-    }
-    // Tworzenie nowego obiektu Audio i odtwarzanie pliku audio po zamontowaniu komponentu
     const audio = new Audio('elev.mp3');
     audio.volume = 0.001;
     audio.play().then(_ => { console.log('działa!') });
@@ -21,7 +14,14 @@ const BallAnimation = () => {
       audio.pause();
       audio.currentTime = 0; // Opcjonalnie resetowanie czasu odtwarzania
     }, 35000);
-
+    const screenWidth = window.innerWidth;
+    if (screenWidth < 600) {
+      setBallsNumber(10);
+    } else if (screenWidth < 1200) {
+      setBallsNumber(20);
+    } else {
+      setBallsNumber(30);
+    }
     // Funkcja czyszcząca, zostanie wywołana po odmontowaniu komponentu
     return () => {
       clearTimeout(stopAudioAfterTimeout);
@@ -34,6 +34,7 @@ const BallAnimation = () => {
   const colors = ['#FF0000', '#FF0000', '#0000FF', '#00FF00', '#FFFF00']; // Zbiór kolorów: czerwony, niebieski, zielony, żółty
 
   const setup = (p5, canvasParentRef) => {
+    console.log(numBalls);
     p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
     for (let i = 0; i < numBalls; i++) {
       const color = p5.random(colors);
