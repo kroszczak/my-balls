@@ -23,7 +23,7 @@ const BallAnimation = () => {
   let balls = [];
   const numBalls = 21;
   const ballSize = 65;
-  const colors = ['#FF0000', '#0000FF', '#00FF00', '#FFFF00']; // Zbiór kolorów: czerwony, niebieski, zielony, żółty
+  const colors = ['#FF0000', 'FF0000', '#0000FF', '#00FF00', '#FFFF00']; // Zbiór kolorów: czerwony, niebieski, zielony, żółty
 
   const setup = (p5, canvasParentRef) => {
     p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
@@ -84,10 +84,10 @@ const BallAnimation = () => {
             this.velocity = v1;
             otherBall.velocity = v2;
             // Dodajemy warunek sprawdzający, czy kule są zbyt blisko
-            if (distance < 2) {
-              this.position.add(normal);
-              otherBall.position.sub(normal);
-            }
+            // if (distance < 2) {
+            //   this.position.add(normal);
+            //   otherBall.position.sub(normal);
+            // }
           }
         }
       }
