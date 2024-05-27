@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Sketch from 'react-p5';
 
 const BallAnimation = () => {
@@ -22,13 +22,12 @@ const BallAnimation = () => {
 
   let balls = [];
   const screenWidth = window.innerWidth;
-  let numBalls = 27;
   const ballSize = 65;
   const colors = ['#FF0000', '#FF0000', '#0000FF', '#00FF00', '#FFFF00']; // Zbiór kolorów: czerwony, niebieski, zielony, żółty
 
   const setup = (p5, canvasParentRef) => {
     p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
-    for (let i = 0; i < numBalls; i++) {
+    for (let i = 0; i < (screenWidth > 1000 ? 25 : 14); i++) {
       const color = p5.random(colors);
       balls.push(new Ball(p5, p5.random(p5.width), p5.random(p5.height), ballSize, color));
     }
