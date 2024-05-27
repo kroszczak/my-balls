@@ -65,9 +65,6 @@ const BallAnimation = () => {
       if (this.position.x + this.size / 2.0 >= this.p5.width || this.position.x - this.size / 2 <= 0) {
         this.velocity.x *= -1;
       }
-      if (this.position.y + this.size / 2.0 >= this.p5.height || this.position.y - this.size / 2 <= 0) {
-        this.velocity.y *= -1;
-      }
     }
 
     checkOtherBalls(otherBalls, p5) {
