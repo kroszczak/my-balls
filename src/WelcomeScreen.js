@@ -9,7 +9,7 @@ const WelcomeScreen = ({ onStart }) => {
                 2. Jeśli możesz, załóż słuchawki <br />
                 3. Ustaw głośność swojego urządzenia na maksymalny poziom. <br />
                 <br />
-                Zobaczysz kilkanaście kulek odbijających się od ścian. Twoim zadaniem jest policzenie, ile razy czerwone kulki łącznie zderzą się ze ścianą, lub inną kulką.</p>
+                Zobaczysz kilkanaście kulek odbijających się od ścian. Twoim zadaniem jest policzenie, ile razy czerwone kulki łącznie zderzą się ze ścianą, lub ze sobą (czerwona z czerwoną).</p>
 
         </div>
     );
